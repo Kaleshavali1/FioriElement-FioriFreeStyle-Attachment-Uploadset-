@@ -1,0 +1,187 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.request.request",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.15.3",
+      "toolsId": "0cd01eb2-27fe-4747-9d94-3d7f62b08c28"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/media/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "request-manage": {
+          "semanticObject": "request",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.130.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.request.request.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "purchaseRequestdList",
+          "target": "purchaseRequestdList"
+        },
+        {
+          "pattern": "purchaseRequestd({key}):?query:",
+          "name": "purchaseRequestdObjectPage",
+          "target": "purchaseRequestdObjectPage"
+        },
+        {
+          "name": "purchaseRequestd__AttachmentsObjectPage",
+          "pattern": "purchaseRequestd({key})/_Attachments({_AttachmentsKey}):?query:",
+          "target": "purchaseRequestd__AttachmentsObjectPage"
+        }
+      ],
+      "targets": {
+        "purchaseRequestdList": {
+          "type": "Component",
+          "id": "purchaseRequestdList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/purchaseRequestd",
+              "variantManagement": "Page",
+              "navigation": {
+                "purchaseRequestd": {
+                  "detail": {
+                    "route": "purchaseRequestdObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "purchaseRequestdObjectPage": {
+          "type": "Component",
+          "id": "purchaseRequestdObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/purchaseRequestd",
+              "navigation": {
+                "_Attachments": {
+                  "detail": {
+                    "route": "purchaseRequestd__AttachmentsObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "purchaseRequestd__AttachmentsObjectPage": {
+          "type": "Component",
+          "id": "purchaseRequestd__AttachmentsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/purchaseRequestd/_Attachments",
+              "content": {
+                "body": {
+                  "sections": {
+                    "Attachment": {
+                      "template": "com.request.request.ext.fragment.Attachment",
+                      "title": "medias"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

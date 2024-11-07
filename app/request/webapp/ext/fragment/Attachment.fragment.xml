@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox core:require="{ handler: 'com/request/request/ext/fragment/Attachment'}">
+		<Button text="Attachment" press="handler.onPress" />
+			
+		 <!-- <FileUploader 
+      id="fileUploader" 
+      uploadUrl="https://port4004-workspaces-ws-9bd5s.us10.trial.applicationstudio.cloud.sap/media/media" 
+      uploadOnChange="true" 
+      visible="false" 
+      fileType="pdf, jpg, png, txt" 
+      maxFileSize="10000000" 
+      change="onFileChange" /> -->
+		<!-- <upload:UploadSet
+			id="UploadSet"
+			instantUpload="false"
+			uploadEnabled="{= !${IsActiveEntity}}"
+			terminationEnabled="{= !${IsActiveEntity}}"
+			fileTypes="txt,doc,png,jpg,jpeg,pdf,xlsx,msg"
+			fileTypeMismatch="handler.onTypeMismatch"
+			afterItemAdded="handler.onAfterItemAdded"
+			maxFileNameLength="30"
+			maxFileSize="200"
+			items="{path: '_Attachments', parameters: {$orderby: 'createdAt desc'}, templateShareable: false}"
+		>
+			<upload:toolbar>
+			</upload:toolbar>
+			<upload:items>
+				<upload:UploadSetItem
+						fileName="{fileName}"
+						mediaType="{mediaType}"
+						url="{url}"
+						enabledEdit="false"
+						visibleEdit="false"
+						enabledRemove="{= ${IsActiveEntity}}"
+						openPressed="handler.onOpenPressed"
+						removePressed="handler.onRemovePressed"
+				>
+					<upload:attributes>
+						<ObjectAttribute
+							title="Uploaded By"
+							text="{createdBy}"
+							active="false"
+						/>
+						<ObjectAttribute
+							title="Uploaded on"
+							text="{createdAt}"
+							active="false"
+						/>
+						<ObjectAttribute
+							title="File Size"
+							text="{size} KB"
+							active="false"
+						/>
+					</upload:attributes>
+				</upload:UploadSetItem>
+			</upload:items>
+		</upload:UploadSet> -->
+	</VBox>
+
+</core:FragmentDefinition>

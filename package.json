@@ -1,0 +1,34 @@
+{
+  "name": "RequestPortal",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0",
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^11.0.2"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "UI5-1.130"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-request": "cds watch --open request/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-requestportal": "cds watch --open requestportal/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/request",
+    "app/requestportal",
+    "app/request",
+    "app/request",
+    "app/request"
+  ]
+}
