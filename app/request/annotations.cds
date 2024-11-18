@@ -117,11 +117,6 @@ annotate service.purchaseRequestd with @(
             Label: 'PO Items',
             Target : 'Items/@UI.LineItem',
         },
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label: 'Media',
-            Target : '_Attachments/@UI.LineItem',
-        },
     ],
     
 );

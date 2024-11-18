@@ -9,27 +9,27 @@ module.exports = cds.service.impl( async function(){
     //Step 1: get the object of our odata entities
     const { purchaseRequestd,media } = this.entities;
 
-this.on('CREATE', purchaseRequestd, async (req) => {
-    const data = req.data;
-    // Generate a UUID for the ID field
+// this.on('CREATE', purchaseRequestd, async (req) => {
+//     const data = req.data;
+//     // Generate a UUID for the ID field
 
-    data.ID = uuidv4();
+//     data.ID = uuidv4();
    
-    // You can add other logic here, e.g., validation
+//     // You can add other logic here, e.g., validation
 
-    return await INSERT.into(purchaseRequestd).entries(data);
-});
-this.on('READ', 'PurchaseRequestd', async (req) => {
-    const { ID } = req.params[0];
-    return SELECT.from('PurchaseRequestd').where({ ID });
-});
+//     return await INSERT.into(purchaseRequestd).entries(data);
+// });
+// this.on('READ', 'purchaseRequestd', async (req) => {
+//     const { ID } = req.params[0];
+//     return SELECT.from('purchaseRequestd').where({ ID });
+// });
 
-this.before('CREATE', 'media', async (req) => {
+// this.before('CREATE', media, async (req) => {
 
-    req.data.url = `/media/media(${req.data.id})/content`;
+//     req.data.url = `/media/media(${req.data.ID})/content`;
 
    
-});
+// });
 });
 // // Temporary local destination to store files initially
 // const upload = multer({ dest: 'uploads/temp/' }); 

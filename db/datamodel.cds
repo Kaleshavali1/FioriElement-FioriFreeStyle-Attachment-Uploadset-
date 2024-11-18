@@ -1,7 +1,7 @@
 namespace RequestPortal.db;
 using { managed,sap.common.CodeList,cuid } from '@sap/cds/common';
 
-entity PurchaseRequest{
+entity PurchaseRequest : cuid{
 
     // prNumber              : String(10);        
     // prType                : String;    //If you write prType : String; without specifying a length, 
@@ -19,7 +19,7 @@ entity PurchaseRequest{
     // modifiedBy            : String @title: 'Changed By';
     // createdAt             : Timestamp @title: 'Created At';
     // modifiedAt            : Timestamp @title: 'Changed At';
-    key UUID           : UUID;
+    // key UUID           : UUID;
     PRNumber           : String(10);
     PRType             : String;
     OVERALL_STATUS         :OrderStatus; // Using the enum here instead of String; // Association to Status
@@ -36,7 +36,7 @@ entity PurchaseRequest{
 }
 
 entity MediaFile {
-      key UUID        : UUID;
+      key id       : UUID;
     PurchaseHeader              : Association to PurchaseRequest;
     @Core.ContentDisposition.Type: 'inline'
     @Core.MediaType: mediaType

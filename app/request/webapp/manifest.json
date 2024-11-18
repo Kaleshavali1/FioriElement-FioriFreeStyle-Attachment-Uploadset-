@@ -152,6 +152,20 @@
                     "route": "purchaseRequestd__AttachmentsObjectPage"
                   }
                 }
+              },
+              "content": {
+                "body": {
+                  "sections": {
+                    "Attachmentss": {
+                      "template": "com.request.request.ext.fragment.Attachmentss",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Facets::0"
+                      },
+                      "title": "Mediasss"
+                    }
+                  }
+                }
               }
             }
           }
@@ -167,8 +181,8 @@
               "content": {
                 "body": {
                   "sections": {
-                    "Attachment": {
-                      "template": "com.request.request.ext.fragment.Attachment",
+                    "Attachmentss": {
+                      "template": "com.request.request.ext.fragment.Attachmentss",
                       "title": "medias"
                     }
                   }

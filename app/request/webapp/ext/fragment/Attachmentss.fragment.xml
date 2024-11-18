@@ -1,0 +1,65 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" 
+	xmlns="sap.m" 
+	xmlns:macros="sap.fe.macros"
+	xmlns:upload="sap.m.upload">
+	<VBox core:require="{ handler: 'com/request/request/ext/fragment/Attachmentss'}">
+		<upload:UploadSet
+				id="UploadSet"
+				instantUpload="false"
+				showIcons="true"
+				uploadEnabled="true"
+				terminationEnabled="true"
+				uploadUrl="https://port4004-workspaces-ws-9bd5s.us10.trial.applicationstudio.cloud.sap/media/media"
+				fileTypes="txt,doc,png,json,pdf,jpg"
+				maxFileNameLength="30"
+				maxFileSize="20000"
+				
+                items="{path: '_Attachments', templateShareable: false}"
+				mode="MultiSelect"
+				selectionChanged="handler.onSelectionChange"
+                beforeItemAdded="handler.onBeforeItemAdded"
+                afterItemAdded="handler.onAfterItemAdded"
+                afterItemRemoved="handler.onAfterItemRemoved">
+            <!--items="{path: 'mediafile>/', templateShareable: false}"
+            uploadUrl="https://port4004-workspaces-ws-9bd5s.us10.trial.applicationstudio.cloud.sap/media/MediaFile"-->
+			<upload:toolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button
+							id="uploadSelectedButton"
+							text="Upload selected"
+							press="handler.onUploadSelectedButton" visible="false"/>
+                        <Button
+							id="deleteSelectedButton"
+							text="delete selected"
+							press="handler.onDeleteSelect"/>
+					<Button
+							id="downloadSelectedButton"
+							text="Download selected"
+							press="handler.onDownloadSelectedButton"/>
+					<Button
+							id="versionButton"
+							enabled="false"
+							text="Upload a new version"
+							press="handler.onVersionUpload"/>
+					<upload:UploadSetToolbarPlaceholder />
+				</OverflowToolbar>
+			</upload:toolbar>
+			<upload:items>
+            
+				<!-- <upload:UploadSetItem
+						fileName="{mediafile>fileName}"
+						mediaType="{mediafile>mediaType}"
+						url="{mediafile>url}"
+                       >						
+				</upload:UploadSetItem> -->
+				<upload:UploadSetItem
+						fileName="{fileName}"
+						mediaType="{mediaType}"
+						url="{url}">						
+				
+				</upload:UploadSetItem>
+			</upload:items>
+		</upload:UploadSet>
+	</VBox>
+</core:FragmentDefinition>
