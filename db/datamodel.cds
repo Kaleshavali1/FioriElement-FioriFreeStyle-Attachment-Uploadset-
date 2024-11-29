@@ -1,7 +1,7 @@
 namespace RequestPortal.db;
 using { managed,sap.common.CodeList,cuid } from '@sap/cds/common';
 
-entity PurchaseRequest : cuid{
+entity PurchaseRequest : cuid,managed{
 
     // prNumber              : String(10);        
     // prType                : String;    //If you write prType : String; without specifying a length, 
@@ -24,13 +24,14 @@ entity PurchaseRequest : cuid{
     PRType             : String;
     OVERALL_STATUS         :OrderStatus; // Using the enum here instead of String; // Association to Status
     RequestDescription  : String;
-    CreatedBy          : String; // Managed by system
-    ChangedBy          : String; // Managed by system
-    CreatedAt          : Timestamp; // Managed by system
-    ChangedAt          : Timestamp; // Managed by system
+    // CreatedBy          : String; // Managed by system
+    // ChangedBy          : String; // Managed by system
+    // CreatedAt          : Timestamp; // Managed by system
+    // ChangedAt          : Timestamp; // Managed by system
     RequestNo          : String(10);
-   
-    // Associations
+     TotalItemCost    : Decimal(15,2);
+//    TotalOrderCost: Decimal(15,2);  // Computed field to store the total cost of the order
+//     // Associations
     Items             : Composition of  many PurchaseRequestItems on Items.Parent = $self;
     _Attachments       : Composition of many MediaFile on _Attachments.PurchaseHeader = $self;
 }
@@ -56,23 +57,24 @@ entity MediaFile {
     //     url       : String;  
     //     purchaseRequest   : Association to PurchaseRequest;   
 }
-entity PurchaseRequestItems {
+entity PurchaseRequestItems:managed {
    key UUID                 : UUID;
     Parent             : Association to PurchaseRequest;
-    PRItemNumber            : String(10);
+    PRItemNumber            : Int16;
     Material                : String;
     MaterialDescription      : String;
     PurOrg                  : String;
     Plant                   : String;
     OVERALL_STATUS                 : OrderStatus; // Using the enum here instead of String;
-    CreatedBy               : String; // Managed by system
-    ChangedBy               : String; // Managed by system
-    CreatedAt               : Timestamp; // Managed by system
-    ChangedAt               : Timestamp; // Managed by system
+    // CreatedBy               : String; // Managed by system
+    // ChangedBy               : String; // Managed by system
+    // CreatedAt               : Timestamp; // Managed by system
+    // ChangedAt               : Timestamp; // Managed by system
     Quantity                : Integer;
     UoM                     : String;
     Price                   : Decimal;
     ReqItemNo              : String;
+    TotalCost : Decimal(15,2);
 //     prItemNumber        : String(10); // CHAR(10)
 //     material            : String;
 //     materialDescription : String;

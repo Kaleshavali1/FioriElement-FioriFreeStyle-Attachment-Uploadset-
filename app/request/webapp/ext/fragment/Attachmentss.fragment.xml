@@ -5,16 +5,17 @@
 	<VBox core:require="{ handler: 'com/request/request/ext/fragment/Attachmentss'}">
 		<upload:UploadSet
 				id="UploadSet"
-				instantUpload="false"
+				instantUpload="true"
 				showIcons="true"
 				uploadEnabled="true"
 				terminationEnabled="true"
-				uploadUrl="https://port4004-workspaces-ws-9bd5s.us10.trial.applicationstudio.cloud.sap/media/media"
 				fileTypes="txt,doc,png,json,pdf,jpg"
 				maxFileNameLength="30"
 				maxFileSize="20000"
 				
-                items="{path: '_Attachments', templateShareable: false}"
+                items="{
+				path: '_Attachments'
+				}"
 				mode="MultiSelect"
 				selectionChanged="handler.onSelectionChange"
                 beforeItemAdded="handler.onBeforeItemAdded"

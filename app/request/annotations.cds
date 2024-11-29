@@ -33,9 +33,10 @@ annotate service.purchaseRequestd with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : 'CreatedBy',
-            Value : CreatedBy,
+            Label : 'TotalItemCost',
+            Value : TotalItemCost,
         },
+        
     ],
      UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
@@ -61,26 +62,26 @@ annotate service.purchaseRequestd with @(
                 Label : 'RequestDescription',
                 Value : RequestDescription,
             },
-            {
-                $Type : 'UI.DataField',
-                Label : 'CreatedBy',
-                Value : CreatedBy,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'ChangedBy',
-                Value : ChangedBy,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'CreatedAt',
-                Value : CreatedAt,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'ChangedAt',
-                Value : ChangedAt,
-            },
+            // {
+            //     $Type : 'UI.DataField',
+            //     Label : 'TotalItemCost',
+            //     Value : TotalItemCost,
+            // },
+            // {
+            //     $Type : 'UI.DataField',
+            //     Label : 'ChangedBy',
+            //     Value : ChangedBy,
+            // },
+            // {
+            //     $Type : 'UI.DataField',
+            //     Label : 'CreatedAt',
+            //     Value : CreatedAt,
+            // },
+            // {
+            //     $Type : 'UI.DataField',
+            //     Label : 'ChangedAt',
+            //     Value : ChangedAt,
+            // },
             {
                 $Type : 'UI.DataField',
                 Label : 'RequestNo',
@@ -126,11 +127,15 @@ annotate service.reqItem with @(
     UI.LineItem:[
         {
             $Type : 'UI.DataField',
-            Value : Parent_UUID,
+            Value : Parent_ID,
         },
         {
             $Type : 'UI.DataField',
             Value : PRItemNumber,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : Quantity,
         },
         {
             $Type : 'UI.DataField',
@@ -139,6 +144,10 @@ annotate service.reqItem with @(
         {
             $Type : 'UI.DataField',
             Value : MaterialDescription,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : TotalCost,
         }
  
  
@@ -153,7 +162,7 @@ annotate service.media with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : UUID,
+            Value : id,
         },
         {
             $Type : 'UI.DataField',
